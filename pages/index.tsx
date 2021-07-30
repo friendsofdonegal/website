@@ -1,10 +1,14 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import Head from "next/head";
 import { Component } from "react";
 import { attributes, react as HomeContent } from "../content/home.md";
 
 export default class Home extends Component {
   render() {
-    const { title, cats } = attributes;
+    const { title, cats } = attributes as {
+      title: string;
+      cats: { name: string; description: string }[];
+    };
     return (
       <>
         <Head>
