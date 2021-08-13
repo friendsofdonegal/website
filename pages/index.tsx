@@ -4,6 +4,8 @@ import React from "react";
 import Layout from "../components/layout";
 import PageTitle from "../components/title";
 import { attributes, react as HomeContent } from "../content/home.md";
+import Image from "next/image";
+import HeroImage from "/public/pexels-hassan-ouajbir-2125422_green.jpg";
 
 interface HomeAttributes {
     title: string;
@@ -33,9 +35,18 @@ const Home: WithPageLayout<React.FC> = () => {
                 <PageTitle title={title} />
                 <meta name="description" content={description} />
             </Head>
-            {/* Hero */}
-            <div className="pt-24">
-                <div className="container flex flex-col flex-wrap items-center px-3 mx-auto md:flex-row">
+
+            <div className="relative pt-24">
+                <Image
+                    layout="fill"
+                    objectFit="cover"
+                    src={HeroImage}
+                    alt={"grass in a field"}
+                />
+                <div className="relative w-full h-0 mb-24 -mt-24">
+                    <div className="hero-fade"></div>
+                </div>
+                <div className="container relative flex flex-col flex-wrap items-center px-3 mx-auto md:flex-row">
                     {/* Left Col */}
                     <div className="flex flex-col items-start justify-center w-full text-center md:w-2/5 md:text-left">
                         <p className="w-full uppercase tracking-loose">
@@ -53,7 +64,7 @@ const Home: WithPageLayout<React.FC> = () => {
                     </div>
                 </div>
             </div>
-            <div className="relative -mt-12 lg:-mt-24">
+            {/* <div className="relative -mt-12 lg:-mt-24">
                 <svg
                     viewBox="0 0 1428 174"
                     version="1.1"
@@ -94,7 +105,7 @@ const Home: WithPageLayout<React.FC> = () => {
                         </g>
                     </g>
                 </svg>
-            </div>
+            </div> */}
             <section className="py-8 bg-white border-b">
                 <div className="container max-w-5xl m-8 mx-auto">
                     <h1 className="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">

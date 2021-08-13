@@ -1,22 +1,58 @@
 backend:
-  name: git-gateway
-  branch: main # Branch to update (optional; defaults to master)
+    name: git-gateway
+    branch: main # Branch to update (optional; defaults to master)
 media_folder: public/img
 public_folder: img
 collections:
-  - name: "pages"
-    label: "Pages"
-    files:
-    - label: "Home"
-      name: "home"
-      file: "content/home.md"
+    - name: "pages"
+      label: "Pages"
+      files:
+          - label: "Home"
+            name: "home"
+            file: "content/home.md"
+            fields:
+                - { label: "Title", name: "title", widget: "string" }
+                - { label: "Publish Date", name: "date", widget: "datetime" }
+                - { label: "Body", name: "body", widget: "markdown" }
+                - label: "Cats"
+                  name: "cats"
+                  widget: list
+                  fields:
+                      - { label: "Name", name: "name", widget: "string" }
+                      - {
+                            label: "Description",
+                            name: "description",
+                            widget: "text",
+                        }
+    - name: "resources"
+      label: "Resources"
+      folder: "_resources"
+      create: true
       fields:
-        - { label: "Title", name: "title", widget: "string"}
-        - { label: "Publish Date", name: "date", widget: "datetime" }
-        - { label: "Body", name: "body", widget: "markdown"}
-        - label: 'Cats'
-          name: "cats"
-          widget: list
-          fields:
-            - { label: "Name", name: "name", widget: "string"}
-            - { label: "Description", name: "description", widget: "text"}
+          - label: "Name"
+            name: "name"
+            widget: "string"
+          - label: "Description"
+            name: "desc"
+            widget: "markdown"
+          - label: "Phone Number"
+            name: "phone_no"
+            widget: "string"
+          - label: "Website"
+            name: "website"
+            widget: "string"
+          - label: "Address"
+            name: "address"
+            widget: "text"
+          - label: "Type"
+            name: "type"
+            widget: "select"
+            options:
+                - { label: "Food Assistance", value: "food_assistance" }
+                - { label: "Education", value: "education" }
+                - { label: "Clothing", value: "clothing" }
+                - { label: "Transportation", value: "transportation" }
+                - { label: "Housing", value: "housing" }
+                - { label: "Mental Health", value: "mental_health" }
+                - { label: "Medical", value: "medical" }
+                - { label: "Other Services", value: "other_services" }

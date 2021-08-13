@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 import useScrollPosition from "../hooks/use-scroll-position";
 
 const Header = () => {
@@ -22,12 +23,13 @@ const Header = () => {
         >
             <div className="container flex flex-wrap items-center justify-between w-full py-2 mx-auto mt-0">
                 <div className="flex items-center pl-4">
-                    <a
-                        className={`text-2xl font-bold text-white no-underline ${toggleColourClasses} hover:no-underline lg:text-4xl`}
-                        href="#"
-                    >
-                        FRIENDS OF DONEGAL
-                    </a>
+                    <Link href="/">
+                        <a
+                            className={`text-2xl font-bold text-white no-underline ${toggleColourClasses} hover:no-underline lg:text-4xl`}
+                        >
+                            FRIENDS OF DONEGAL
+                        </a>
+                    </Link>
                 </div>
                 <div className="block pr-4 lg:hidden">
                     <button
@@ -58,12 +60,11 @@ const Header = () => {
                             </a>
                         </li>
                         <li className="mr-3">
-                            <a
-                                className="inline-block px-4 py-2 text-black no-underline hover:text-gray-800 hover:text-underline"
-                                href="#"
-                            >
-                                About Us
-                            </a>
+                            <Link href="/about-us">
+                                <a className="inline-block px-4 py-2 text-black no-underline hover:text-gray-800 hover:text-underline">
+                                    About Us
+                                </a>
+                            </Link>
                         </li>
                         <li className="mr-3">
                             <a
