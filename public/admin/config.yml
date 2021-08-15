@@ -6,6 +6,7 @@ public_folder: img
 collections:
     - name: "pages"
       label: "Pages"
+      label_singular: "Page"
       files:
           - label: "Home"
             name: "home"
@@ -16,6 +17,7 @@ collections:
                 - { label: "Body", name: "body", widget: "markdown" }
     - name: "resources"
       label: "Resources"
+      label_singular: "Resource"
       folder: "_resources"
       create: true
       fields:
@@ -28,12 +30,15 @@ collections:
           - label: "Phone Number"
             name: "phone_no"
             widget: "string"
+            required: false
           - label: "Website"
             name: "website"
             widget: "string"
+            required: false
           - label: "Address"
             name: "address"
             widget: "text"
+            required: false
           - label: "Type"
             name: "type"
             widget: "select"
