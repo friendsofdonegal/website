@@ -5,7 +5,7 @@ import Layout from "../components/layout";
 import PageTitle from "../components/title";
 import { attributes, react as HomeContent } from "../content/pages/home.md";
 import Image from "next/image";
-import HeroImage from "/public/pexels-hassan-ouajbir-2125422_green.jpg";
+import HeroImage from "/public/hero-grass.jpg";
 
 interface HomeAttributes {
     title: string;
