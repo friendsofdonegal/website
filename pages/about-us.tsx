@@ -3,7 +3,10 @@ import Head from "next/head";
 import React from "react";
 import Layout from "../components/layout";
 import PageTitle from "../components/title";
-import { attributes, react as AboutUsContent } from "../content/about-us.md";
+import {
+    attributes,
+    react as AboutUsContent,
+} from "../content/pages/about-us.md";
 
 interface AboutUsAttributes {
     title: string;

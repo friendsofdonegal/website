@@ -3,7 +3,7 @@ import Head from "next/head";
 import React from "react";
 import Layout from "../components/layout";
 import PageTitle from "../components/title";
-import { attributes, react as HomeContent } from "../content/home.md";
+import { attributes, react as HomeContent } from "../content/pages/home.md";
 import Image from "next/image";
 import HeroImage from "/public/pexels-hassan-ouajbir-2125422_green.jpg";
 

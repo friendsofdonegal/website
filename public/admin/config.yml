@@ -10,15 +10,20 @@ collections:
       files:
           - label: "Home"
             name: "home"
-            file: "content/home.md"
+            file: "content/pages/home.md"
             fields:
                 - { label: "Title", name: "title", widget: "string" }
                 - { label: "Publish Date", name: "date", widget: "datetime" }
                 - { label: "Body", name: "body", widget: "markdown" }
+          - label: "About Us"
+            name: "about-us"
+            file: "content/pages/about-us.md"
+            fields:
+                - { label: "Title", name: "title", widget: "string" }
     - name: "resources"
       label: "Resources"
       label_singular: "Resource"
-      folder: "_resources"
+      folder: "content/resources"
       create: true
       fields:
           - label: "Name"
