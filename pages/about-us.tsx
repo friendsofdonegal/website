@@ -7,6 +7,7 @@ import {
     attributes,
     react as AboutUsContent,
 } from "../content/pages/about-us.md";
+import { WithPageLayout } from "../types/with-page-layout";
 
 interface AboutUsAttributes {
     title: string;
@@ -20,11 +21,7 @@ function getAttributes<TAttributes = unknown>(
     };
 }
 
-export type WithPageLayout<TUnknown = unknown> = TUnknown & {
-    getLayout?: (page: React.ReactNode) => React.ReactNode;
-};
-
-const AboutUs: WithPageLayout<React.FC> = () => {
+const AboutUs: WithPageLayout = () => {
     const { title } = getAttributes<AboutUsAttributes>(attributes);
 
     return (

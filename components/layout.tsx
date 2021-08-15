@@ -12,10 +12,12 @@ const Layout: React.FC = ({ children }) => {
                 <PageTitle />
             </Head>
             <Header />
-            <main>{children}</main>
+            <main className="pt-24">{children}</main>
             <Footer />
         </>
     );
 };
+
+Layout.displayName = "Layout";
 
 export default Layout;

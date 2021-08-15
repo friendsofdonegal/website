@@ -75,12 +75,14 @@ const Header = () => {
                             </a>
                         </li>
                     </ul>
-                    <button
-                        id="navAction"
-                        className={`px-8 py-4 mx-auto mt-4 font-bold transition duration-300 ease-in-out transform rounded-full shadow opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105 ${navActionClasses}`}
-                    >
-                        Resources
-                    </button>
+                    <Link href="/resource-list">
+                        <a
+                            id="navAction"
+                            className={`px-8 py-4 mx-auto mt-4 font-bold transition duration-300 ease-in-out transform rounded-full shadow opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105 ${navActionClasses}`}
+                        >
+                            Resources
+                        </a>
+                    </Link>
                 </div>
             </div>
             <hr className="py-0 my-0 border-b border-gray-100 opacity-25" />
