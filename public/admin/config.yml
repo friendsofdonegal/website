@@ -3,6 +3,7 @@ backend:
     branch: main # Branch to update (optional; defaults to master)
 media_folder: public/img
 public_folder: img
+publish_mode: editorial_workflow
 collections:
     - name: "pages"
       label: "Pages"
@@ -25,12 +26,14 @@ collections:
       label_singular: "Resource"
       folder: "content/resources"
       create: true
+      slug: "{{slug}}"
+      identifier_field: name
       fields:
           - label: "Name"
             name: "name"
             widget: "string"
           - label: "Description"
-            name: "desc"
+            name: "body"
             widget: "markdown"
           - label: "Phone Number"
             name: "phone_no"
