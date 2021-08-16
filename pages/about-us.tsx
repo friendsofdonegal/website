@@ -29,7 +29,9 @@ const AboutUs: WithPageLayout = () => {
             <Head>
                 <PageTitle title={title} />
             </Head>
-            <AboutUsContent />
+            <div className="container px-4 mx-auto">
+                <AboutUsContent />
+            </div>
         </>
     );
 };

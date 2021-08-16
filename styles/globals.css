@@ -44,6 +44,10 @@
     h3 {
         @apply text-lg;
     }
+
+    p + h2 {
+        @apply pt-4;
+    }
 }
 
 @layer components {
