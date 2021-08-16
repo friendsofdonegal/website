@@ -27,7 +27,7 @@ const ResourceList: WithPageLayout<ResourceListProps> = ({ resources }) => {
     );
 
     return (
-        <div className="container pl-4 mx-auto">
+        <div className="container px-4 mx-auto">
             {Object.keys(groupedResources).map((type) => {
                 return (
                     <div key={type}>
