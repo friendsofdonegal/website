@@ -2,10 +2,14 @@ import React from "react";
 import Link from "next/link";
 import useScrollPosition from "../hooks/use-scroll-position";
 
-const Header = () => {
+interface HeaderProps {
+    bgStyle?: "light" | "dark";
+}
+
+const Header: React.FC<HeaderProps> = ({ bgStyle = "light" }) => {
     const { y: scrollY } = useScrollPosition();
 
-    const alternateHeaderStyle = scrollY > 10;
+    const alternateHeaderStyle = scrollY > 10 || bgStyle === "light";
 
     const toggleColourClasses = alternateHeaderStyle
         ? "text-gray-800"

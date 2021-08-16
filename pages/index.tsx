@@ -766,6 +766,6 @@ const Home: WithPageLayout = () => {
     );
 };
 
-Home.getLayout = (page) => <Layout>{page}</Layout>;
+Home.getLayout = (page) => <Layout bgStyle="dark">{page}</Layout>;
 
 export default Home;

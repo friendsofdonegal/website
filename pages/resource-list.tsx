@@ -14,7 +14,7 @@ interface ResourceListProps {
             name: string;
             phone_no?: string;
             website?: string;
-            type: "food_assistance";
+            type: string;
         };
         filename: string;
     }>;
@@ -27,7 +27,7 @@ const ResourceList: WithPageLayout<ResourceListProps> = ({ resources }) => {
     );
 
     return (
-        <div className="container mx-auto">
+        <div className="container pl-4 mx-auto">
             {Object.keys(groupedResources).map((type) => {
                 return (
                     <div key={type}>

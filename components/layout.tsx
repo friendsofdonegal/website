@@ -5,13 +5,17 @@ import Footer from "./footer";
 import Header from "./header";
 import PageTitle from "./title";
 
-const Layout: React.FC = ({ children }) => {
+interface LayoutProps {
+    bgStyle?: "light" | "dark";
+}
+
+const Layout: React.FC<LayoutProps> = ({ bgStyle, children }) => {
     return (
         <>
             <Head>
                 <PageTitle />
             </Head>
-            <Header />
+            <Header bgStyle={bgStyle} />
             <main className="pt-24">{children}</main>
             <Footer />
         </>
