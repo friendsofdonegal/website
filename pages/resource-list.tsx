@@ -120,6 +120,7 @@ const getResourceTypes = async (): Promise<
 
     const { options } = netlifyConfig?.collections
         .find((collection: any) => collection.name === "resources")
+        ?.fields.find((field: any) => field.name === "services")
         ?.fields.find((field: any) => field.name === "type");
 
     return options;
