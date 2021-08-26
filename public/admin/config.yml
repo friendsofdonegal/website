@@ -36,6 +36,10 @@ collections:
             name: "phone_no"
             widget: "string"
             required: false
+          - label: "Email Address"
+            name: "email_address"
+            widget: "string"
+            required: false
           - label: "Website"
             name: "website"
             widget: "string"

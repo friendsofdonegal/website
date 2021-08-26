@@ -6,6 +6,7 @@ import PageTitle from "../components/title";
 import { attributes, react as HomeContent } from "../content/pages/home.md";
 import Image from "next/image";
 import HeroImage from "/public/hero-grass.jpg";
+import { WithPageLayout } from "../types/with-page-layout";
 
 interface HomeAttributes {
     title: string;
@@ -21,11 +22,7 @@ function getAttributes<TAttributes = unknown>(
     };
 }
 
-export type WithPageLayout<TUnknown = unknown> = TUnknown & {
-    getLayout?: (page: React.ReactNode) => React.ReactNode;
-};
-
-const Home: WithPageLayout<React.FC> = () => {
+const Home: WithPageLayout = () => {
     const { title, description, subTitle } =
         getAttributes<HomeAttributes>(attributes);
 
@@ -36,7 +33,7 @@ const Home: WithPageLayout<React.FC> = () => {
                 <meta name="description" content={description} />
             </Head>
 
-            <div className="relative pt-24">
+            <div className="relative">
                 <Image
                     layout="fill"
                     objectFit="cover"
@@ -46,7 +43,7 @@ const Home: WithPageLayout<React.FC> = () => {
                 <div className="relative w-full h-0 mb-24 -mt-24">
                     <div className="hero-fade"></div>
                 </div>
-                <div className="container relative flex flex-col flex-wrap items-center px-3 mx-auto md:flex-row">
+                <div className="container relative flex flex-col flex-wrap items-center px-3 mx-auto text-white md:flex-row">
                     {/* Left Col */}
                     <div className="flex flex-col items-start justify-center w-full text-center md:w-2/5 md:text-left">
                         <p className="w-full uppercase tracking-loose">
@@ -769,6 +766,6 @@ const Home: WithPageLayout<React.FC> = () => {
     );
 };
 
-Home.getLayout = (page) => <Layout>{page}</Layout>;
+Home.getLayout = (page) => <Layout bgStyle="dark">{page}</Layout>;
 
 export default Home;
