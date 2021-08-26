@@ -1,6 +1,7 @@
 ---
 name: Donegal School District
 website: https://www.schoolcafe.com
-type: food_assistance
+services:
+  - type: food_assistance
+    description: Free and Reduced School Breakfast/Lunch for students
 ---
-Free and Reduced School Breakfast/Lunch for students

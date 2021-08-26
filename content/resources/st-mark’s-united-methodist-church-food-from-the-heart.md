@@ -5,8 +5,10 @@ website: http://www.connectstmarks.com
 address: |-
   37 E. Main Street
   Mount Joy PA 17552
-type: food_assistance
----
-Provides pre-made frozen meals for a short duration for families going through a tough time or major life changes. 
+services:
+  - type: food_assistance
+    description: |-
+        Provides pre-made frozen meals for a short duration for families going through a tough time or major life changes.
 
-Please call between 9:00am – 2:00pm
+        Please call between 9:00am – 2:00pm
+---

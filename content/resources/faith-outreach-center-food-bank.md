@@ -5,10 +5,12 @@ email_address: PastorAndyFOC@gmail.com
 address: |-
   475 Anderson Ferry Rd.
   Mount Joy, PA. 17552
-type: food_assistance
+services:
+  - type: food_assistance
+    description: |-
+        Provides community residents with access to a food bank on the last Wednesday of each month from 4-6 pm.
+
+        Must bring ID and two proofs of address.
+
+        Everyone is welcome.
 ---
-Provides community residents with access to a food bank on the last Wednesday of each month from 4-6 pm. 
-
-Must bring ID and two proofs of address. 
-
-Everyone is welcome.

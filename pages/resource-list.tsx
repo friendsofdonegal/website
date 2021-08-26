@@ -5,7 +5,7 @@ import path from "path";
 import { WithPageLayout } from "../types/with-page-layout";
 import matter from "gray-matter";
 import yaml from "js-yaml";
-import { groupBy } from "lodash";
+import { chain } from "lodash";
 
 interface ResourceListProps {
     resources: Array<{
@@ -14,17 +14,28 @@ interface ResourceListProps {
             name: string;
             phone_no?: string;
             website?: string;
-            type: string;
+            services: Array<{ type: string; description: string }>;
         };
         filename: string;
     }>;
 }
 
 const ResourceList: WithPageLayout<ResourceListProps> = ({ resources }) => {
-    const groupedResources = groupBy(
-        resources,
-        (resource) => resource.data.type
-    );
+    const groupedResources = chain(resources)
+        .flatMap((resource) => {
+            const { data, ...restResource } = resource;
+            const { services, ...restData } = data;
+
+            return resource.data.services.map((service) => ({
+                ...restResource,
+                data: {
+                    ...restData,
+                    ...service,
+                },
+            }));
+        })
+        .groupBy((resource) => resource.data.type)
+        .value();
 
     return (
         <div className="container px-4 mx-auto">
@@ -49,7 +60,7 @@ const ResourceList: WithPageLayout<ResourceListProps> = ({ resources }) => {
                                                 {website}
                                             </a>
                                         </p>
-                                        <p>{content}</p>
+                                        <p>{data.description}</p>
                                     </div>
                                 );
                             }
@@ -76,9 +87,13 @@ export async function getStaticProps() {
             content,
             data: {
                 ...data,
-                type:
-                    resourceTypes.find((type) => type.value === data.type)
-                        ?.label ?? data.type,
+                services: data.services.map((service: any) => ({
+                    ...service,
+                    type:
+                        resourceTypes.find(
+                            (type) => type.value === service.type
+                        )?.label ?? service.type,
+                })),
             },
             filename,
         };
