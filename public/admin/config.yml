@@ -32,9 +32,6 @@ collections:
           - label: "Name"
             name: "name"
             widget: "string"
-          - label: "Description"
-            name: "body"
-            widget: "markdown"
           - label: "Phone Number"
             name: "phone_no"
             widget: "string"
@@ -51,15 +48,23 @@ collections:
             name: "address"
             widget: "text"
             required: false
-          - label: "Type"
-            name: "type"
-            widget: "select"
-            options:
-                - { label: "Food Assistance", value: "food_assistance" }
-                - { label: "Education", value: "education" }
-                - { label: "Clothing", value: "clothing" }
-                - { label: "Transportation", value: "transportation" }
-                - { label: "Housing", value: "housing" }
-                - { label: "Mental Health", value: "mental_health" }
-                - { label: "Medical", value: "medical" }
-                - { label: "Other Services", value: "other_services" }
+          - label: "Services"
+            name: "services"
+            widget: "list"
+            summary: '{{fields.type}}'
+            fields:
+              - label: "Type"
+                name: "type"
+                widget: "select"
+                options:
+                    - { label: "Food Assistance", value: "food_assistance" }
+                    - { label: "Education", value: "education" }
+                    - { label: "Clothing", value: "clothing" }
+                    - { label: "Transportation", value: "transportation" }
+                    - { label: "Housing", value: "housing" }
+                    - { label: "Mental Health", value: "mental_health" }
+                    - { label: "Medical", value: "medical" }
+                    - { label: "Other Services", value: "other_services" }
+              - label: "Description"
+                name: "description"
+                widget: "markdown"
