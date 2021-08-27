@@ -45,7 +45,9 @@ const ResourceList: WithPageLayout<ResourceListProps> = ({ resources }) => {
                     <div key={type}>
                         {index > 0 && <hr className="my-4" />}
 
-                        <h2 className="font-bold">{type}</h2>
+                        <h2 className="pb-4 text-green-700 uppercase">
+                            {type}
+                        </h2>
                         {groupedResources[type].map(({ data, filename }) => {
                             const { name, phone_no, website } = data;
 
