@@ -6,6 +6,7 @@ import { WithPageLayout } from "../types/with-page-layout";
 import matter from "gray-matter";
 import yaml from "js-yaml";
 import { chain } from "lodash";
+import marked from "marked";
 
 interface ResourceListProps {
     resources: Array<{
@@ -39,32 +40,36 @@ const ResourceList: WithPageLayout<ResourceListProps> = ({ resources }) => {
 
     return (
         <div className="container px-4 mx-auto">
-            {Object.keys(groupedResources).map((type) => {
+            {Object.keys(groupedResources).map((type, index) => {
                 return (
                     <div key={type}>
-                        <h2 className="font-bold">{type}</h2>
-                        {groupedResources[type].map(
-                            ({ content, data, filename }) => {
-                                const { name, phone_no, website } = data;
+                        {index > 0 && <hr className="my-4" />}
 
-                                return (
-                                    <div key={filename} className="pb-4">
-                                        <h3>{name}</h3>
-                                        <p>{phone_no}</p>
-                                        <p>
-                                            <a
-                                                target="_blank"
-                                                rel="noreferrer"
-                                                href={website}
-                                            >
-                                                {website}
-                                            </a>
-                                        </p>
-                                        <p>{data.description}</p>
-                                    </div>
-                                );
-                            }
-                        )}
+                        <h2 className="font-bold">{type}</h2>
+                        {groupedResources[type].map(({ data, filename }) => {
+                            const { name, phone_no, website } = data;
+
+                            return (
+                                <div key={filename} className="pb-4">
+                                    <h3>{name}</h3>
+                                    <p>{phone_no}</p>
+                                    <p>
+                                        <a
+                                            target="_blank"
+                                            rel="noreferrer"
+                                            href={website}
+                                        >
+                                            {website}
+                                        </a>
+                                    </p>
+                                    <div
+                                        dangerouslySetInnerHTML={{
+                                            __html: data.description,
+                                        }}
+                                    />
+                                </div>
+                            );
+                        })}
                     </div>
                 );
             })}
@@ -88,7 +93,7 @@ export async function getStaticProps() {
             data: {
                 ...data,
                 services: data.services.map((service: any) => ({
-                    ...service,
+                    description: marked(service.description),
                     type:
                         resourceTypes.find(
                             (type) => type.value === service.type
