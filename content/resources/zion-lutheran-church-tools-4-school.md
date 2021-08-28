@@ -7,4 +7,7 @@ services:
   - type: education
     description: Provides free school supplies and clothing for school age students.
       The event takes place each August before the start of the new school year.
+  - type: clothing
+    description: Provides free clothing and school supplies for school age students.
+      The event takes place each August before the start of the new school year.
 ---
