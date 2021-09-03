@@ -5,26 +5,8 @@
 @tailwind utilities;
 
 @layer base {
-    .gradient-transparent {
-        background: rgb(20, 61, 0);
-        background: linear-gradient(
-            90deg,
-            rgba(20, 61, 0, 1) 0%,
-            rgba(19, 121, 9, 1) 42%,
-            rgba(107, 171, 105, 0) 100%
-        );
-    }
-
     .gradient {
-        background: rgb(20, 61, 0);
-        background: linear-gradient(
-            90deg,
-            rgba(20, 61, 0, 1) 0%,
-            rgba(19, 121, 9, 1) 42%,
-            rgba(107, 171, 105, 1) 100%
-        );
-
-        /* background: linear-gradient(90deg, #d53369 0%, #daae51 100%); */
+        @apply bg-gradient-to-r from-green-800 via-green-700 to-green-600
     }
 
     body {
@@ -51,12 +33,5 @@
     p + h2 {
         font-family: "Poppins", sans-serif;
         @apply pt-4;
-    }
-}
-
-@layer components {
-    .hero-fade {
-        @apply gradient-transparent;
-        height: 36rem;
     }
 }

@@ -16,7 +16,11 @@ const Layout: React.FC<LayoutProps> = ({ bgStyle, children }) => {
                 <PageTitle />
             </Head>
             <Header bgStyle={bgStyle} />
-            <main className="pt-24">{children}</main>
+            <main
+                className={`pt-24 ${bgStyle === "dark" ? "bg-green-600" : ""}`}
+            >
+                {children}
+            </main>
             <Footer />
         </>
     );
