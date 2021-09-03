@@ -47,6 +47,11 @@ const Menu: React.FC<MenuProps> = ({
         ? `inline-block px-4 py-2 font-bold ${linkColor[style]} no-underline hover:underline`
         : `px-8 py-4 mx-auto mt-4 font-bold transition duration-300 ease-in-out transform rounded-full shadow opacity-75 lg:mx-0 hover:underline lg:mt-0 focus:outline-none focus:shadow-outline hover:scale-105 ${navActions[style]}`;
 
+    const menuButtonColors =
+        showMobileMenu || style === "light"
+            ? "text-gray-800 hover:text-gray-900"
+            : "text-white hover:text-gray-200";
+
     useEffect(() => {
         if (!showMobileMenu) {
             return;
@@ -72,10 +77,10 @@ const Menu: React.FC<MenuProps> = ({
             <div className="block pr-4 lg:hidden">
                 <button
                     onClick={handleCompactMenuClick}
-                    className={`flex items-center p-1 ${linkColor[style]} transition duration-300 ease-in-out transform hover:text-gray-900 focus:outline-none focus:shadow-outline hover:scale-105`}
+                    className={`flex items-center p-1 transition duration-300 ease-in-out transform focus:outline-none focus:shadow-outline hover:scale-105`}
                 >
                     <svg
-                        className="w-6 h-6 fill-current"
+                        className={`w-6 h-6 fill-current ${menuButtonColors}`}
                         viewBox="0 0 20 20"
                         xmlns="http://www.w3.org/2000/svg"
                     >
