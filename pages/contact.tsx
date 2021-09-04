@@ -14,12 +14,11 @@ const Contact: WithPageLayout = () => {
                 method="POST"
                 data-netlify="true"
                 action="/contact-success"
-                data-netlify-recaptcha="true"
                 className="grid max-w-lg grid-cols-1 gap-6 mt-6"
             >
                 <input type="hidden" name="form-name" value="contact" />
                 <label className="block">
-                    Your Name:{" "}
+                    Your Name:
                     <input
                         className="block w-full mt-1 bg-gray-100 border-transparent rounded-md focus:border-gray-500 focus:bg-white focus:ring-0"
                         name="name"
@@ -27,7 +26,7 @@ const Contact: WithPageLayout = () => {
                     />
                 </label>
                 <label className="block">
-                    Your Email:{" "}
+                    Your Email:
                     <input
                         className="block w-full mt-1 bg-gray-100 border-transparent rounded-md focus:border-gray-500 focus:bg-white focus:ring-0"
                         placeholder="john@example.com"
@@ -36,7 +35,7 @@ const Contact: WithPageLayout = () => {
                     />
                 </label>
                 <label className="block">
-                    Message:{" "}
+                    Message:
                     <textarea
                         className="block w-full mt-1 bg-gray-100 border-transparent rounded-md focus:border-gray-500 focus:bg-white focus:ring-0"
                         rows={3}
