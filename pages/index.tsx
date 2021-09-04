@@ -10,16 +10,13 @@ import path from "path";
 import { WithPageLayout } from "../types/with-page-layout";
 import yaml from "js-yaml";
 import marked from "marked";
+import matter from "gray-matter";
 
 interface HomeAttributes {
     title: string;
     description: string;
     pageTitle: string;
     subPageTitle: string;
-    resources: {
-        type: string;
-        description: string;
-    }[];
 }
 
 function getAttributes<TAttributes = unknown>(
@@ -31,13 +28,17 @@ function getAttributes<TAttributes = unknown>(
 }
 
 interface HomeProps {
+    resources: {
+        type: string;
+        description: string;
+    }[];
     resourceTypes: Record<string, string>;
 }
 
-const Home: WithPageLayout<HomeProps> = ({ resourceTypes }) => {
-    const { title, description, pageTitle, resources, subPageTitle } =
-        getAttributes<HomeAttributes>(attributes);
+const { title, description, pageTitle, subPageTitle } =
+    getAttributes<HomeAttributes>(attributes);
 
+const Home: WithPageLayout<HomeProps> = ({ resources, resourceTypes }) => {
     return (
         <>
             <Head>
@@ -85,10 +86,10 @@ const Home: WithPageLayout<HomeProps> = ({ resourceTypes }) => {
                                             <div className="w-full px-6 pt-6 text-xl font-bold text-gray-800">
                                                 {resourceTypes[type]}
                                             </div>
-                                            <p
+                                            <div
                                                 className="px-6 mb-5 text-base text-gray-800"
                                                 dangerouslySetInnerHTML={{
-                                                    __html: marked(description),
+                                                    __html: description,
                                                 }}
                                             />
                                         </a>
@@ -152,12 +153,34 @@ const Home: WithPageLayout<HomeProps> = ({ resourceTypes }) => {
 };
 
 export async function getStaticProps() {
+    const [resources, resourceTypes] = await Promise.all([
+        getResources(),
+        getResourceTypes(),
+    ]);
+
     return {
         props: {
-            resourceTypes: await getResourceTypes(),
+            resources,
+            resourceTypes,
         },
     };
 }
+
+const getResources = async (): Promise<
+    Array<{
+        type: string;
+        description: string;
+    }>
+> => {
+    const homeFilename = path.join(process.cwd(), "content/pages/home.md");
+    const fileContents = await fs.readFile(homeFilename, "utf8");
+    const { data } = matter(fileContents);
+
+    return data.resources.map((resource: any) => ({
+        description: marked(resource.description),
+        type: resource.type,
+    }));
+};
 
 const getResourceTypes = async (): Promise<Record<string, string>> => {
     const netlifyConfigPath = path.join(
