@@ -40,7 +40,7 @@ const Header: React.FC<HeaderProps> = ({ bgStyle = "light" }) => {
                     actionLinkText="Resources"
                     style={alternateHeaderStyle ? "light" : "dark"}
                 >
-                    <MenuLink href="/meetings">Meetings</MenuLink>
+                    {/* <MenuLink href="/meetings">Meetings</MenuLink> */}
                     <MenuLink href="/about-us">About Us</MenuLink>
                     <MenuLink href="/contact">Contact</MenuLink>
                 </Menu>

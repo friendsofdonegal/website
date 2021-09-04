@@ -6,7 +6,11 @@
 
 @layer base {
     .gradient {
-        @apply bg-gradient-to-r from-green-800 via-green-700 to-green-600
+        @apply bg-gradient-to-r from-green-800 via-green-700 to-green-600;
+    }
+
+    html {
+        scroll-padding-top: 90px; /* height of sticky header */
     }
 
     body {
@@ -15,23 +19,28 @@
         font-family: "Roboto", sans-serif;
     }
 
-    h1 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
         font-family: "Poppins", sans-serif;
+    }
+
+    h1 {
         @apply text-2xl font-semibold;
     }
 
     h2 {
-        font-family: "Poppins", sans-serif;
         @apply text-xl font-semibold;
     }
 
     h3 {
-        font-family: "Poppins", sans-serif;
         @apply text-lg font-medium;
     }
 
     p + h2 {
-        font-family: "Poppins", sans-serif;
         @apply pt-4;
     }
 }

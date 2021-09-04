@@ -13,9 +13,41 @@ collections:
             name: "home"
             file: "content/pages/home.md"
             fields:
-                - { label: "Title", name: "title", widget: "string" }
-                - { label: "Publish Date", name: "date", widget: "datetime" }
-                - { label: "Body", name: "body", widget: "markdown" }
+                - label: "Title"
+                  name: "title"
+                  widget: "string"
+                - label: "Page Title"
+                  name: "pageTitle"
+                  widget: "string"
+                - label: "Sub-page Title"
+                  name: "subPageTitle"
+                  widget: "string"
+                - label: "Publish Date"
+                  name: "date"
+                  widget: "datetime"
+                - label: "Body"
+                  name: "body"
+                  widget: "markdown"
+                - label: "Resources"
+                  name: "resources"
+                  widget: "list"
+                  summary: '{{fields.type}}'
+                  fields:
+                    - label: "Type"
+                      name: "type"
+                      widget: "select"
+                      options:
+                          - { label: "Food Assistance", value: "food_assistance" }
+                          - { label: "Education", value: "education" }
+                          - { label: "Clothing", value: "clothing" }
+                          - { label: "Transportation", value: "transportation" }
+                          - { label: "Housing", value: "housing" }
+                          - { label: "Mental Health", value: "mental_health" }
+                          - { label: "Medical", value: "medical" }
+                          - { label: "Other Services", value: "other_services" }
+                    - label: "Description"
+                      name: "description"
+                      widget: "markdown"
           - label: "About Us"
             name: "about-us"
             file: "content/pages/about-us.md"

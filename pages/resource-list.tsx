@@ -7,6 +7,7 @@ import matter from "gray-matter";
 import yaml from "js-yaml";
 import { chain } from "lodash";
 import marked from "marked";
+import ResourceHeading from "../components/resource-heading";
 
 interface ResourceListProps {
     resources: Array<{
@@ -19,9 +20,13 @@ interface ResourceListProps {
         };
         filename: string;
     }>;
+    resourceTypes: Record<string, string>;
 }
 
-const ResourceList: WithPageLayout<ResourceListProps> = ({ resources }) => {
+const ResourceList: WithPageLayout<ResourceListProps> = ({
+    resources,
+    resourceTypes,
+}) => {
     const groupedResources = chain(resources)
         .flatMap((resource) => {
             const { data, ...restResource } = resource;
@@ -45,9 +50,11 @@ const ResourceList: WithPageLayout<ResourceListProps> = ({ resources }) => {
                     <div key={type}>
                         {index > 0 && <hr className="my-4" />}
 
-                        <h2 className="pb-4 text-green-700 uppercase">
-                            {type}
-                        </h2>
+                        <ResourceHeading
+                            label={resourceTypes[type]}
+                            type={type}
+                        />
+
                         {groupedResources[type].map(({ data, filename }) => {
                             const { name, phone_no, website } = data;
 
@@ -83,8 +90,6 @@ export async function getStaticProps() {
     const resourcesDirectory = path.join(process.cwd(), "content/resources");
     const filenames = await fs.readdir(resourcesDirectory);
 
-    const resourceTypes = await getResourceTypes();
-
     const resources = filenames.map(async (filename) => {
         const filePath = path.join(resourcesDirectory, filename);
         const fileContents = await fs.readFile(filePath, "utf8");
@@ -96,10 +101,7 @@ export async function getStaticProps() {
                 ...data,
                 services: data.services.map((service: any) => ({
                     description: marked(service.description),
-                    type:
-                        resourceTypes.find(
-                            (type) => type.value === service.type
-                        )?.label ?? service.type,
+                    type: service.type,
                 })),
             },
             filename,
@@ -109,13 +111,12 @@ export async function getStaticProps() {
     return {
         props: {
             resources: await Promise.all(resources),
+            resourceTypes: await getResourceTypes(),
         },
     };
 }
 
-const getResourceTypes = async (): Promise<
-    Array<{ label: string; value: string }>
-> => {
+const getResourceTypes = async (): Promise<Record<string, string>> => {
     const netlifyConfigPath = path.join(
         process.cwd(),
         "public/admin/config.yml"
@@ -130,7 +131,18 @@ const getResourceTypes = async (): Promise<
         ?.fields.find((field: any) => field.name === "services")
         ?.fields.find((field: any) => field.name === "type");
 
-    return options;
+    return (
+        options?.reduce(
+            (
+                acc: Record<string, string>,
+                option: { label: string; value: string }
+            ) => {
+                acc[option.value] = option.label;
+                return acc;
+            },
+            {}
+        ) ?? {}
+    );
 };
 
 // eslint-disable-next-line react/display-name
