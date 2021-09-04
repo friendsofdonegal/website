@@ -13,8 +13,11 @@ const Contact: WithPageLayout = () => {
                 name="contact"
                 method="POST"
                 data-netlify="true"
+                action="/contact-success"
+                data-netlify-recaptcha="true"
                 className="grid max-w-lg grid-cols-1 gap-6 mt-6"
             >
+                <input type="hidden" name="form-name" value="contact" />
                 <label className="block">
                     Your Name:{" "}
                     <input
