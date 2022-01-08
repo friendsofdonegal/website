@@ -6,7 +6,8 @@
     "build": "parcel build index.html"
   },
   "devDependencies": {
-    "parcel": "^2.1.1"
+    "parcel": "^2.1.1",
+    "sharp": "^0.29.3"
   },
   "volta": {
     "node": "12.18.0"
