@@ -4507,8 +4507,18 @@
 
 	.container1 {
 	  display: flex;
-	  align-items: center;
+	  align-items: flex-start;
 	  justify-content: center
+	}
+
+	@media screen and (max-width: 736px) {
+		.container1 {
+			flex-direction: column;
+		}
+
+		.container1 .text1 {
+			padding-left: 0;
+		}
 	}
 
 	.img1 {
@@ -4527,8 +4537,22 @@
 
 	.container2 {
 	  display: flex;
-	  align-items: center;
+	  align-items: flex-start;
 	  justify-content: center
+	}
+
+	.container2 .text2 h2 {
+		text-align: right;
+	}
+
+	@media screen and (max-width: 736px) {
+		.container2 {
+			flex-direction: column-reverse;
+		}
+
+		.container2 .text2 h2 {
+			text-align: left;
+		}
 	}
 
 	.img2 {
@@ -4618,7 +4642,7 @@
 		}
 
 		#map {
-
+			max-width: 100%;
 			text-align: center;
 		}
 
