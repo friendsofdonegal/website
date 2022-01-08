@@ -3032,7 +3032,7 @@
 			background-color: #212931;
 			background-image: url("../../images/overlay.png"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/square.jpg?width=1920&as=webp");
 			background-size: cover;
-			background-position: center,								center,														bottom center;
+			background-position: center center;
 			background-repeat: repeat,								no-repeat,													no-repeat;
 			background-attachment: scroll,								scroll,														scroll;
 			z-index: -1;
@@ -3043,7 +3043,7 @@
 		}
 
 		#wrapper > .bgMay {
-			background-image: url("../../images/overlay.png"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/maytown.jpg?width=1920&as=webp");
+			background-image: url("../../images/overlay.png"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/maytown2.jpg?width=1920&as=webp");
 		}
 
 		#wrapper > .bgTree {
