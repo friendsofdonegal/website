@@ -4665,6 +4665,12 @@
 			padding-bottom: 50px;
 		}
 
+		@media screen and (max-width: 480px) {
+			#mapDv {
+				padding: 50px 0;
+			}
+		}
+
 		.mapA {
 			margin: 0;
 			padding:  0;
