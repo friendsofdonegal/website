@@ -2,8 +2,8 @@
   "name": "friendsofdonegal-website",
   "version": "1.0.0",
   "scripts": {
-    "dev": "parcel index.html",
-    "build": "parcel build index.html"
+    "dev": "parcel index.html thanks.html",
+    "build": "parcel build index.html  thanks.html"
   },
   "devDependencies": {
     "parcel": "^2.1.1",
