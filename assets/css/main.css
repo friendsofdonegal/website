@@ -3031,8 +3031,8 @@
 			height: 100%;
 			background-color: #212931;
 			background-image: url("../../images/overlay.png"), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url("../../images/square.jpg?width=1920&as=webp");
-			background-size: auto,								auto,														100% auto;
-			background-position: center,								center,														top center;
+			background-size: cover;
+			background-position: center,								center,														bottom center;
 			background-repeat: repeat,								no-repeat,													no-repeat;
 			background-attachment: scroll,								scroll,														scroll;
 			z-index: -1;
@@ -3084,13 +3084,12 @@
 			opacity: 1;
 		}
 
-		@media screen and (orientation: portrait) {
-
+		/* @media screen and (orientation: portrait) {
 			#wrapper > .bg {
-				background-size: auto,								auto,														auto 175%;
+				background-size: auto, auto, auto 175%;
 			}
 
-		}
+		} */
 
 /* Intro */
 
