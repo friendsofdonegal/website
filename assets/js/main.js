@@ -40,18 +40,16 @@
 			intensity = 0.25;
 
 		$this.each(function() {
-			var bgclass = "bg " + $(window.document.body).data('background');
+			var bgOverride = $(window.document.body).data('background') ?? "";
+			var bgclass = "bg fixed " + bgOverride;
 
 			var $t = $(this),
 				$bg = $('<div class="' + bgclass + '"></div>').appendTo($t),
 				on, off;
 
-			on = function() {
-				$bg.removeClass('fixed');
-			};
+			on = function() { };
 
 			off = function() {
-				$bg.addClass('fixed');
 				$window.off('scroll._parallax');
 			};
 
