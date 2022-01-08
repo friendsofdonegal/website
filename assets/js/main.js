@@ -40,13 +40,10 @@
 			intensity = 0.25;
 
 		$this.each(function() {
-
-
-			var bgclass = "bg " + window.bgclass;
-
+			var bgclass = "bg " + $(window.document.body).data('background');
 
 			var $t = $(this),
-				$bg = $('<div class="'+bgclass + '"></div>').appendTo($t),
+				$bg = $('<div class="' + bgclass + '"></div>').appendTo($t),
 				on, off;
 
 			on = function() {
