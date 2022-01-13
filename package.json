@@ -6,7 +6,7 @@
     "build": "parcel build index.html  thanks.html"
   },
   "devDependencies": {
-    "parcel": "^2.1.1",
+    "parcel": "^2.2.0",
     "sharp": "^0.29.3"
   },
   "volta": {
