@@ -141,6 +141,8 @@
 					</div>
 
 			</div>
+				
+			<button id="toTop">To Top</button>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -149,6 +151,26 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script>
+				var btnTop = document.getElementById('toTop');
+
+				document.onscroll = function() {scrolling()}
+
+				btnTop.onclick = scrollTop;
+
+				function scrolling() {
+					if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+						btnTop.style.display = "block";
+					} else {
+						btnTop.style.display = "none";
+					}
+				}
+
+				function scrollTop() {
+					window.scrollTo({ top: 0, behavior: 'smooth' });
+				}
+			</script>
 
 	</body>
 </html>
