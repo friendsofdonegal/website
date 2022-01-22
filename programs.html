@@ -24,7 +24,7 @@
 
 				<!-- Header -->
 					<header id="header">
-						<a href="calender.html" class="logo">Calender</a>
+						<a href="calender.html" class="logo">Calendar</a>
 					</header>
 
 				<!-- Nav -->
@@ -33,7 +33,7 @@
 							<li><a href="index.html">Home</a></li>
 							<li><a href="about.html">About Us</a></li>
 							<li class="active"><a href="programs.html">Programs</a></li>
-							<li><a href="calender.html">Calender</a></li>
+							<li><a href="calender.html">Calendar</a></li>
 						</ul>
 						<ul class="icons">
 							<li><a href="https://www.facebook.com/FODDSD" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
@@ -54,7 +54,7 @@
 									<a href="#" class="image fit"><img src="images/pattyGA2.png?width=800&as=webp" alt="" /></a>
 									<p>THE GETTING AHEAD PROGRAM IS A 12 WEEK PROGRAM where individuals explore the theory of change while investigating their lives and their community. Participants DEVELOP A PLAN to build a path out of poverty, after exploring the mental models of economic class. Individuals must commit to attending the 2-hour classes and are provided with a $25 gift certificate for each class as a way to recognize participants for their engagement and work in their individual and community investigation. FOR EACH CLASS TRANSPORTATION, DINNER, AND CHILD CARE ARE PROVIDED. THE CLASS IS FREE.</p><br /><br />
 									<ul class="actions">
-										<li><a href="#" class="button">Sign Up</a></li>
+										<li><a class="button signUp">Sign Up</a></li>
 									</ul>
 								</article>
 								<article>
@@ -65,7 +65,7 @@
 									<a href="#" class="image fit"><img src="images/treehand2.jpg?width=800&as=webp" alt="" /></a>
 									<p>CHAMPIONS FOR TEENS IS AN ADVOCATE PROGRAM FOR STUDENTS in the Donegal High school who are identified as homeless. Friends of Donegal helps to recruit and train volunteers for the Donegal school district program The advocate (Champion) works through the Possible Selves curriculum, which is an evidence-based model to support the teen’s development of life goals and tools to identify what they aspire to become after high school graduation. Training and on-going consultation is provided to support the Champion as they take on this highly valuable role. A year-long commitment is required of Champions, however long-term connection to the student and the community is highly encouraged.</p>
 									<ul class="actions">
-										<li><a href="#" class="button">Sign Up</a></li>
+										<li><a class="button signUp">Sign Up</a></li>
 									</ul>
 								</article>
 							</section>
@@ -79,7 +79,7 @@
 									<a href="#" class="image fit"><img src="images/Pam.jpg?width=800&as=webp" alt="" /></a>
 									<p>THE STAYING AHEAD PROGRAM IS AN EXTENSION OF THE GETTING AHEAD PROGRAM. It provides the investigators with ongoing ways to stay in touch. Meetings are scheduled on a monthly basis. Each meeting consists of a review of their individual plan and where they are in meeting the goals they established. FOR EACH CLASS TRANSPORATION, DINNER, AND CHILD CARE ARE PROVIDED.</p>
 									<ul class="actions">
-										<li><a href="#" class="button">Sign Up</a></li>
+										<li><a class="button signUp">Sign Up</a></li>
 									</ul>
 								</article>
 								<article>
@@ -90,13 +90,13 @@
 									<a href="#" class="image fit"><img src="images/helping2.jpg?width=800&as=webp" alt="" /></a>
 									<p>EMERGENCY RENTAL ASSISTANCE PROGRAM (ERAP) BEGINS IN JANUARY 2022. This program offers financial support from the federal government for those individuals who have been impacted by Covid 19 by losing a job or in a reduction in work hours since March 2020. The Friends of Donegal and the DSAA are working together to support this program. The program will run 1 day per week. Check the website for hours and updates.</p>
 									<ul class="actions">
-										<li><a href="#" class="button">Sign Up</a></li>
+										<li><a class="button signUp">Sign Up</a></li>
 									</ul>
 								</article>
 							</section>
 
 						<!-- Footer -->
-							<footer>
+							<footer id="toFoot">
 								<div class="pagination">
 									<h2>Contact Us</h2>
 								</div>
@@ -133,7 +133,7 @@
 							</section>
 							<section>
 								<h3>Phone</h3>
-								<p>(717) 473-9109</p>
+								<p>(717) 492-6624</p>
 							</section>
 							<section>
 								<h3>Email</h3>
@@ -184,6 +184,24 @@
 				function scrollTop() {
 					window.scrollTo({ top: 0, behavior: 'smooth' });
 				}
+
+
+				var footer = document.getElementById('footer');
+
+				var contactHead = document.getElementById('toFoot');
+
+				var signUpBtns = document.getElementsByClassName('signUp');
+
+				for (var btn of signUpBtns) {
+					btn.onclick = scrollFoot;
+				}
+
+				function scrollFoot() {
+					console.log(contactHead);
+					window.scrollTo({ top: footer.offsetTop - contactHead.offsetHeight, behavior: 'smooth' });
+				}
+
+
 			</script>
 
 	</body>
