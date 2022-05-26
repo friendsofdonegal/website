@@ -2549,6 +2549,11 @@
 				vertical-align: middle;
 			}
 
+				ul.icons li form {
+					margin: 0;
+					margin-top: -0.25rem;
+				}
+
 				ul.icons li:last-child {
 					padding-right: 0;
 				}
