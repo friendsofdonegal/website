@@ -2549,11 +2549,6 @@
 				vertical-align: middle;
 			}
 
-				ul.icons li form {
-					margin: 0;
-					margin-top: -0.25rem;
-				}
-
 				ul.icons li:last-child {
 					padding-right: 0;
 				}
@@ -4643,7 +4638,8 @@
 			}
 
 			.image.main img {
-				width: 100%;
+				width: 65%;
+				margin: auto;
 			}
 
 		@media screen and (max-width: 736px) {
@@ -4737,4 +4733,28 @@
 #logoHead {
     margin-bottom:  30px;
     height: 300px;
+}
+
+.volP {
+	text-align: left;
+}
+
+.volP li {
+	font-size: 18px;
+}
+
+#m501 {
+	text-align: center;
+}
+
+.h501 {
+
+}
+
+.p501 {
+	font-size: 16px;
+}
+
+#volInfo {
+	font-size: 18px;
 }
