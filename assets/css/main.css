@@ -4758,3 +4758,8 @@
 #volInfo {
 	font-size: 18px;
 }
+
+ul.icons li form {
+	margin: 0;
+	margin-top: -0.25rem;
+}
