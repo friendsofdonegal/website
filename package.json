@@ -5,10 +5,12 @@
     "build": "parcel build index.html thanks.html donation-thank-you.html donation-cancelled.html"
   },
   "devDependencies": {
-    "parcel": "^2.8.0",
-    "sharp": "^0.31.2"
+    "parcel": "^2.8.2",
+    "prettier": "2.8.1",
+    "sharp": "^0.31.3"
   },
   "volta": {
     "node": "18.12.1"
-  }
+  },
+  "packageManager": "pnpm@7.22.0"
 }
