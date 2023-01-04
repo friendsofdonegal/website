@@ -8,6 +8,7 @@
         {
             "files": "**/*.html",
             "options": {
+                "htmlWhitespaceSensitivity": "ignore",
                 "printWidth": 140,
                 "tabWidth": 2
             }
