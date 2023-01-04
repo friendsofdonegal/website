@@ -2,13 +2,21 @@
   "name": "friendsofdonegal-website",
   "scripts": {
     "dev": "parcel index.html thanks.html donation-thank-you.html donation-cancelled.html",
-    "build": "parcel build index.html thanks.html donation-thank-you.html donation-cancelled.html"
+    "build": "parcel build index.html thanks.html donation-thank-you.html donation-cancelled.html",
+    "prepare": "husky install"
   },
   "devDependencies": {
-    "parcel": "^2.8.0",
-    "sharp": "^0.31.2"
+    "husky": "^8.0.3",
+    "lint-staged": "^13.1.0",
+    "parcel": "^2.8.2",
+    "prettier": "^2.8.1",
+    "sharp": "^0.31.3"
   },
   "volta": {
     "node": "18.12.1"
+  },
+  "packageManager": "pnpm@7.22.0",
+  "lint-staged": {
+    "*.{js,css,md,html}": "prettier --write"
   }
 }
