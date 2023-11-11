@@ -37,8 +37,7 @@
 
     &.alt {
         background-color: transparentize(_palette(bg), 0.125);
-        box-shadow: 0 0.125rem 0.75rem 0
-            transparentize(_palette(invert, bg), 0.75);
+        box-shadow: 0 0.125rem 0.75rem 0 transparentize(_palette(invert, bg), 0.75);
         color: _palette(fg-bold);
 
         &:hover {
@@ -60,11 +59,7 @@
     @include vendor("transform", "translateX(20rem)");
     @include vendor(
         "transition",
-        (
-            "transform #{_duration(menu)} ease",
-            "box-shadow #{_duration(menu)} ease",
-            "visibility #{_duration(menu)}"
-        )
+        ("transform #{_duration(menu)} ease", "box-shadow #{_duration(menu)} ease", "visibility #{_duration(menu)}")
     );
     display: none;
     -webkit-overflow-scrolling: touch;
@@ -109,10 +104,7 @@
 
     .close {
         @include icon;
-        @include vendor(
-            "transition",
-            "color #{_duration(transition)} ease-in-out"
-        );
+        @include vendor("transition", "color #{_duration(transition)} ease-in-out");
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
         border: 0;
         color: _palette(fg-light);

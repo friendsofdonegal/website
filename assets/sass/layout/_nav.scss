@@ -54,10 +54,7 @@
 
                     &:hover {
                         color: inherit !important;
-                        background-color: transparentize(
-                            _palette(invert, fg),
-                            0.9
-                        );
+                        background-color: transparentize(_palette(invert, fg), 0.9);
                     }
                 }
 

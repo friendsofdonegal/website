@@ -25,8 +25,7 @@
         if (this.length == 0 || intensity === 0) return $this;
 
         if (this.length > 1) {
-            for (var i = 0; i < this.length; i++)
-                $(this[i])._parallax(intensity);
+            for (var i = 0; i < this.length; i++) $(this[i])._parallax(intensity);
 
             return $this;
         }
@@ -64,11 +63,9 @@
             }
         });
 
-        $window
-            .off("load._parallax resize._parallax")
-            .on("load._parallax resize._parallax", function () {
-                $window.trigger("scroll");
-            });
+        $window.off("load._parallax resize._parallax").on("load._parallax resize._parallax", function () {
+            $window.trigger("scroll");
+        });
 
         return $(this);
     };
@@ -93,10 +90,7 @@
 
         // Prioritize "important" elements on medium.
         skel.on("+medium -medium", function () {
-            $.prioritize(
-                ".important\\28 medium\\29",
-                skel.breakpoint("medium").active
-            );
+            $.prioritize(".important\\28 medium\\29", skel.breakpoint("medium").active);
         });
 
         // Scrolly.
@@ -108,9 +102,7 @@
         // Nav Panel.
 
         // Toggle.
-        $navPanelToggle = $(
-            '<a href="#navPanel" id="navPanelToggle">Menu</a>'
-        ).appendTo($wrapper);
+        $navPanelToggle = $('<a href="#navPanel" id="navPanelToggle">Menu</a>').appendTo($wrapper);
 
         // Change toggle styling once we've scrolled past the header.
         $header.scrollex({
@@ -124,13 +116,7 @@
         });
 
         // Panel.
-        $navPanel = $(
-            '<div id="navPanel">' +
-                "<nav>" +
-                "</nav>" +
-                '<a href="#navPanel" class="close"></a>' +
-                "</div>"
-        )
+        $navPanel = $('<div id="navPanel">' + "<nav>" + "</nav>" + '<a href="#navPanel" class="close"></a>' + "</div>")
             .appendTo($body)
             .panel({
                 delay: 500,
@@ -166,8 +152,7 @@
         });
 
         // Hack: Disable transitions on WP.
-        if (skel.vars.os == "wp" && skel.vars.osVersion < 10)
-            $navPanel.css("transition", "none");
+        if (skel.vars.os == "wp" && skel.vars.osVersion < 10) $navPanel.css("transition", "none");
 
         // Intro.
         var $intro = $("#intro");

@@ -3948,6 +3948,7 @@ body.is-loading #intro:not(.hidden) + #header + #nav {
     text-align: center;
     width: 100%;
     padding: 0;
+    justify-content: center;
 }
 
 #main > .posts > * {

@@ -46,10 +46,7 @@
     &.hidden {
         @include vendor("pointer-events", "none");
         @include vendor("transform", "translateY(2rem)");
-        @include vendor(
-            "transition",
-            ("opacity 0.5s ease", "transform 0.5s ease", "visibility 0.5s")
-        );
+        @include vendor("transition", ("opacity 0.5s ease", "transform 0.5s ease", "visibility 0.5s"));
         opacity: 0;
         visibility: hidden;
 
