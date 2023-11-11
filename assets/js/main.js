@@ -25,7 +25,9 @@
         if (this.length == 0 || intensity === 0) return $this;
 
         if (this.length > 1) {
-            for (var i = 0; i < this.length; i++) $(this[i])._parallax(intensity);
+            for (var i = 0; i < this.length; i++) {
+                $(this[i])._parallax(intensity);
+            }
 
             return $this;
         }
@@ -152,7 +154,9 @@
         });
 
         // Hack: Disable transitions on WP.
-        if (skel.vars.os == "wp" && skel.vars.osVersion < 10) $navPanel.css("transition", "none");
+        if (skel.vars.os == "wp" && skel.vars.osVersion < 10) {
+            $navPanel.css("transition", "none");
+        }
 
         // Intro.
         var $intro = $("#intro");
