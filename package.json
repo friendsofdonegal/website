@@ -4,7 +4,7 @@
   "source": "index.html",
   "scripts": {
     "dev": "parcel index.html thanks.html donation-thank-you.html donation-cancelled.html",
-    "build": "parcel build index.html thanks.html donation-thank-you.html donation-cancelled.html",
+    "build": "parcel build --no-optimize index.html thanks.html donation-thank-you.html donation-cancelled.html",
     "prepare": "husky install",
     "serve": "pnpm run build && pnpx serve dist"
   },
