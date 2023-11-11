@@ -14,64 +14,6 @@
         xxsmall: "(max-width: 360px)",
     });
 
-    /**
-     * Applies parallax scrolling to an element's background image.
-     * @return {jQuery} jQuery object.
-     */
-    $.fn._parallax = function (intensity) {
-        var $window = $(window),
-            $this = $(this);
-
-        if (this.length == 0 || intensity === 0) return $this;
-
-        if (this.length > 1) {
-            for (var i = 0; i < this.length; i++) {
-                $(this[i])._parallax(intensity);
-            }
-
-            return $this;
-        }
-
-        if (!intensity) intensity = 0.25;
-
-        $this.each(function () {
-            var bgOverride = $(window.document.body).data("background") ?? "";
-            var bgclass = "bg fixed " + bgOverride;
-
-            var $t = $(this),
-                $bg = $('<div class="' + bgclass + '"></div>').appendTo($t),
-                on,
-                off;
-
-            on = function () {};
-
-            off = function () {
-                $window.off("scroll._parallax");
-            };
-
-            // Disable parallax on ..
-            if (
-                skel.vars.browser == "ie" || // IE
-                skel.vars.browser == "edge" || // Edge
-                window.devicePixelRatio > 1 || // Retina/HiDPI (= poor performance)
-                skel.vars.mobile
-            )
-                // Mobile devices
-                off();
-            // Enable everywhere else.
-            else {
-                skel.on("!large -large", on);
-                skel.on("+large", off);
-            }
-        });
-
-        $window.off("load._parallax resize._parallax").on("load._parallax resize._parallax", function () {
-            $window.trigger("scroll");
-        });
-
-        return $(this);
-    };
-
     $(function () {
         var $window = $(window),
             $body = $("body"),
@@ -97,9 +39,6 @@
 
         // Scrolly.
         $(".scrolly").scrolly();
-
-        // Background.
-        $wrapper._parallax(0.925);
 
         // Nav Panel.
 

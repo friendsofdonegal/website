@@ -1792,7 +1792,7 @@ body {
 }
 
 body {
-    background-color: #1e252d;
+    background-color: #23431e;
 }
 
 body.is-loading *,
@@ -3291,7 +3291,7 @@ table.alt tbody tr td {
     -webkit-transition-delay: 0.75s;
     -ms-transition-delay: 0.75s;
     transition-delay: 0.75s;
-    background: #1e252d;
+    background: #172b13;
     content: "";
     display: block;
     height: 100%;
