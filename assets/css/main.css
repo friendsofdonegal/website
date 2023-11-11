@@ -5037,3 +5037,13 @@ ul.icons li form {
     margin: 0;
     margin-top: -0.25rem;
 }
+
+.p-about .c-heading {
+    text-align: center;
+}
+
+@media screen and (max-width: 480px) {
+    .p-about .c-heading {
+        font-size: 3em;
+    }
+}
