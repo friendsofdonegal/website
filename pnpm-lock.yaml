@@ -12,13 +12,13 @@ devDependencies:
     specifier: ^15.0.2
     version: 15.0.2
   parcel:
-    specifier: ^2.10.2
+    specifier: latest
     version: 2.10.2
   prettier:
     specifier: ^3.0.3
     version: 3.0.3
   sharp:
-    specifier: ^0.31.1
+    specifier: ^0.31.3
     version: 0.31.3
 
 packages:

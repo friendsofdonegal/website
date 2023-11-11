@@ -1,19 +1,22 @@
 {
   "name": "friendsofdonegal-website",
+  "browserslist": "> 0.5%, last 2 versions, not dead",
+  "source": "index.html",
   "scripts": {
     "dev": "parcel index.html thanks.html donation-thank-you.html donation-cancelled.html",
     "build": "parcel build index.html thanks.html donation-thank-you.html donation-cancelled.html",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "serve": "pnpm run build && pnpx serve dist"
   },
   "devDependencies": {
     "husky": "^8.0.3",
     "lint-staged": "^15.0.2",
-    "parcel": "^2.10.2",
+    "parcel": "latest",
     "prettier": "^3.0.3",
-    "sharp": "^0.31.1"
+    "sharp": "^0.31.3"
   },
   "volta": {
-    "node": "18.18.2",
+    "node": "18.12.1",
     "pnpm": "8.10.2"
   },
   "packageManager": "pnpm@8.10.2",
