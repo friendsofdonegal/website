@@ -9,13 +9,13 @@
     "serve": "pnpm run build && pnpx serve dist"
   },
   "devDependencies": {
-    "husky": "^8.0.3",
+    "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
     "parcel": "latest",
     "prettier": "^3.2.5",
-    "sharp": "^0.31.3"
+    "sharp": "0.31.1"
   },
-  "packageManager": "pnpm@8.10.2",
+  "packageManager": "pnpm@9.1.1",
   "lint-staged": {
     "*.{js,css,md,html}": "prettier --write"
   }
